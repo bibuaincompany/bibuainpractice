@@ -35,6 +35,3 @@ class _SignupState extends State<Signup> {
   }
 }
 
-// git config --global user.name bibuain
-// git config --global user.name bibuaincompany
-// git config --global user.email bibuain2@gmail.com
