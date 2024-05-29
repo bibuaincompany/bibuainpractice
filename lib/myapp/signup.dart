@@ -8,30 +8,63 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
+  //logic
+
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+
+  Getinputs() {
+    print(email.text);
+    print(password.text);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("sign up"),
       ),
-      body: Center(
-        child: Column(
-          children: [
-            GestureDetector(
-              onTap: () {
-                print('Hello');
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextFormField(
+              controller: email,
+              onChanged: (value) {
+                print(value);
               },
-              child: Container(
-                height: 50,
-                width: 300,
-                decoration: BoxDecoration(color: Colors.blue),
-                child: Center(child: Text("press me")),
-              ),
-            )
-          ],
-        ),
+              decoration: InputDecoration(
+                  hintText: "Enter Email", prefixIcon: Icon(Icons.email)),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextFormField(
+              controller: password,
+              decoration: InputDecoration(
+                  hintText: "Enter Password", prefixIcon: Icon(Icons.password)),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+
+          GestureDetector(
+            onTap: () {
+              Getinputs();
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                  color: Colors.blue, borderRadius: BorderRadius.circular(8)),
+              child: Center(child: Text("Sign Up")),
+              height: 40,
+              width: 100,
+            ),
+          )
+
+//customised button
+        ],
       ),
     );
   }
 }
-
